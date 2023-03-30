@@ -7,4 +7,17 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="YUGIBUILDBILD.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Service\" />
+    <Folder Include="Repository\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="YUGIBUILDBILD.png" />
+  </ItemGroup>
+
 </Project>
