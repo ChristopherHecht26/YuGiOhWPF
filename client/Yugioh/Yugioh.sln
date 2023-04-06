@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YugiohWPF", "YugiohWPF\YugiohWPF.csproj", "{91F49D2F-00EE-433D-99B5-87880E2F863B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YugiohWPF", "YugiohWPF\YugiohWPF.csproj", "{91F49D2F-00EE-433D-99B5-87880E2F863B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Net.Http;
 
 namespace YugiohWPF
 {
@@ -31,6 +32,7 @@ namespace YugiohWPF
         private int row_position = 0; //zeigt row postion (cursor)
 
         ColumnDefinition gridCol = new ColumnDefinition();
+        API api = new API();
 
         private void add_card_to_deck()
         {
@@ -69,6 +71,10 @@ namespace YugiohWPF
         private void btn_Create_Click(object sender, RoutedEventArgs e)
         {
             add_card_to_deck();
+            Filter filter = new Filter();
+            this.Visibility = Visibility.Hidden;
+            filter.Show();
         }
+
     }
 }

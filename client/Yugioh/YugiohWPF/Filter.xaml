@@ -1,0 +1,53 @@
+﻿<Window x:Class="YugiohWPF.Filter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YugiohWPF"
+        mc:Ignorable="d"
+        Title="Filter" Height="450" Width="800" Icon="/YUGIBUILDBILD.png" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="17*"/>
+                <ColumnDefinition Width="33*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel x:Name="stkPanel_Labels">
+                <Label x:Name="lbl_CardType" Content="Card Type : "/>
+                <Label x:Name="lbl_Category" Content="Category : "/>
+                <Label x:Name="lbl_Ability" Content="Ability : "/>
+                <Label x:Name="lbl_Attribute" Content="Atrribute : "/>
+                <Label x:Name="lbl_Type" Content="Type :"/>
+                <Label x:Name="lbl_Level" Content="Level : "/>
+                <Label x:Name="lbl_Effect_Type" Content="Effect Type : "/>
+                <Label x:Name="lbl_Effect" Content="Effect : "/>
+            </StackPanel>
+            <StackPanel x:Name="stkPanel_ComboBoxes" Grid.Column="1">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type ComboBox}">
+                        <Setter Property="Padding" Value="0,5,0,5"/>
+                    </Style>
+                </StackPanel.Resources>
+                <ComboBox x:Name="cmbBox_CardType">
+                    <ComboBoxItem  Content="All Cards" IsSelected="True"/>
+                    <ComboBoxItem  Content="Monster Cards" />
+                    <ComboBoxItem  Content="Trap Cards" />
+                    <ComboBoxItem  Content="Spell Cards"/>
+                </ComboBox>
+
+                <ComboBox x:Name="cmbBox_Category">
+                    <ComboBoxItem
+                </ComboBox>
+                <ComboBox x:Name="cmbBox_Ability"/>
+                <ComboBox x:Name="cmbBox_Attribute"/>
+                <ComboBox x:Name="cmbBox_Type"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
