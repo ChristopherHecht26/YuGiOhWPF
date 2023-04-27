@@ -42,7 +42,7 @@
                 </ComboBox>
 
                 <ComboBox x:Name="cmbBox_Category">
-                    <ComboBoxItem
+                    <ComboBoxItem></ComboBoxItem>
                 </ComboBox>
                 <ComboBox x:Name="cmbBox_Ability"/>
                 <ComboBox x:Name="cmbBox_Attribute"/>

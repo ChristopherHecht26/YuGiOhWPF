@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,9 +34,40 @@ namespace YugiohWPF
         private int col_count; //zählt columns, um einen rechtzeitigen Umbruch einzufügen
         private int col_position_max; //zählt columns, sobald die 15 Spalten eingefügt sind
         private int row_position = 0; //zeigt row postion (cursor)
+        public float temp;
 
         ColumnDefinition gridCol = new ColumnDefinition();
         RowDefinition rowCol = new RowDefinition();
+
+
+        HttpClient httpClient = new HttpClient();
+
+        
+        private void send_requ()
+        {
+            string requestUri = "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Dark Magician";
+            string jsonstring = "{'id':46986421,'name':'Dark Magician'}";
+
+            HttpResponseMessage httpResponse = httpClient.GetAsync(requestUri).Result;
+
+            string response = httpResponse.Content.ReadAsStringAsync().Result;
+
+            Root JSON_Objekte = JsonConvert.DeserializeObject<Root>(response);
+
+
+            MessageBox.Show(JSON_Objekte.data[0].card_images[0].image_url.ToString());
+
+        }
+
+        public class cardResponse
+        {
+            public string name { get; set; }
+        }
+
+        class Data
+        {
+            public int atk;
+        }
 
         private void add_card_to_deck()
         {
@@ -44,8 +79,12 @@ namespace YugiohWPF
             card1.FontWeight = FontWeights.Bold;
             card1.Background = Brushes.Beige;
 
+
+            send_requ();
+
+
             //Karten setzen
-            if(col_count == 10)
+            if (col_count == 10)
             {
                 col_position_max++;
                 if(col_position_max == 9)
@@ -102,7 +141,7 @@ namespace YugiohWPF
                 grd_cardholder.Children.Add(card1);
                 card_count++;
             }
-            lbl_Info.Content = "Deckinfo :  Spaltencount : " + col_count.ToString() +"Spalte : " + col_position_max.ToString() + "reihen : " + grd_cardholder.RowDefinitions.Count.ToString();
+            lbl_Info.Content = "Deckinfo :  Spaltencount : " + col_count.ToString() + "Spalte : " + col_position_max.ToString() + "reihen : " + grd_cardholder.RowDefinitions.Count.ToString();
 
 
         }
