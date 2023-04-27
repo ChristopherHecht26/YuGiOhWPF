@@ -34,15 +34,19 @@ public class API
 
 		 */
 
-        //HttpClient httpClient = new HttpClient();
+        HttpClient httpClient = new HttpClient();
 
-        //string requestUri = "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Dark Magician";
+    }
+    HttpClient httpClient = new HttpClient();
 
-        //HttpResponseMessage httpResponse = httpClient.GetAsync(requestUri).Result;
+    private void send_requ()
+    {
+        string requestUri = "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Dark Magician";
 
-        //string response = httpResponse.Content.ReadAsStringAsync().Result;
-        //Console.WriteLine(response);
+        HttpResponseMessage httpResponse = httpClient.GetAsync(requestUri).Result;
 
+        string response = httpResponse.Content.ReadAsStringAsync().Result;
+        Console.WriteLine(response);
     }
     
 }
