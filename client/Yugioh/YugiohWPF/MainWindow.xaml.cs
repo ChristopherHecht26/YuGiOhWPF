@@ -111,5 +111,11 @@ namespace YugiohWPF
         {
             add_card_to_deck();
         }
+
+        private void btn_Test_Click(object sender, RoutedEventArgs e)
+        {
+            YugiohWPF.Filter filter = new Filter();
+            filter.Show();
+        }
     }
 }

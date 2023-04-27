@@ -24,5 +24,7 @@
 
         </DockPanel>
 
+        <Button x:Name="btnTest" Content="Test" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,84,0,0" RenderTransformOrigin="-0.12,0.685" Width="61" Height="27" Click ="btn_Test_Click"/>
+
     </Grid>
 </Window>
