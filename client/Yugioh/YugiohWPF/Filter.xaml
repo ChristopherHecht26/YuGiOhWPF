@@ -11,7 +11,6 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBox Grid.Column="0" x:Name="txtBoxSearch" Text="{Binding name}" Margin="5" Height="30" VerticalAlignment="Top" Width="430" />
 
         <StackPanel x:Name="stkPanel">
 
@@ -30,7 +29,6 @@
         </StackPanel>
         
         <ListView x:Name="lvKarten" Margin="5" VerticalAlignment="Bottom" Height="370"  >
-            <ListView x:Name="lvKarten" Margin="5" VerticalAlignment="Bottom" Height="370" >
 
         </ListView>
 

@@ -54,11 +54,16 @@ namespace YugiohWPF
 
         private void btnSuchen_Click(object sender, RoutedEventArgs e)
         {
-            requestURI = "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=" + name + "&" + ;
+            requestURI = "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=" + name + "&" ;
             HttpResponseMessage httpResponse = httpClient.GetAsync(requestURI).Result;
 
             string response = httpResponse.Content.ReadAsStringAsync().Result;
             txtBlockTest.Text = response;
+        }
+
+        private void cmbBox_Type_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
