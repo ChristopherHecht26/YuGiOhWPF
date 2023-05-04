@@ -54,7 +54,7 @@
                         <Setter Property="Padding" Value="0,5,0,5"/>
                     </Style>
                 </StackPanel.Resources>
-                <ComboBox x:Name="cmbBox_Type" SelectionChanged="cmbBox_Type_SelectionChanged" SelectedItem="{Binding type}">
+                <ComboBox x:Name="cmbBox_Type" SelectionChanged="cmbBox_Type_SelectionChanged" SelectedItem="{Binding type}" >
                     <ComboBoxItem  Content="All Cards" IsSelected="True" />
                     <ComboBoxItem  Content="Monster Cards" />
                     <ComboBoxItem  Content="Trap Cards" />
