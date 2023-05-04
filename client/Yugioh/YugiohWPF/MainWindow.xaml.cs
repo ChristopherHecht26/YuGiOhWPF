@@ -65,8 +65,7 @@ namespace YugiohWPF
 
         private void btn_Create_Click(object sender, RoutedEventArgs e)
         {
-            card.Add(new CardImage() {image_url = send_requ() });
-            
+            card.Add(new CardImage() {image_url = send_requ()});
         }
 
         private void btn_Test_Click(object sender, RoutedEventArgs e)
