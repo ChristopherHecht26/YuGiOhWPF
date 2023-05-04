@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,13 +8,15 @@ using System.Threading.Tasks;
 namespace YugiohWPF
 {
 
-        public class CardImage
+        public class CardImage : INotifyPropertyChanged
         {
             public int id { get; set; }
             public string image_url { get; set; }
             public string image_url_small { get; set; }
             public string image_url_cropped { get; set; }
-        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+    }
 
         public class CardPrice
         {

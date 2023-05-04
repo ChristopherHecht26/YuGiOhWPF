@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
@@ -24,9 +25,11 @@ namespace YugiohWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        ObservableCollection<CardImage> card = new ObservableCollection<CardImage>();
         public MainWindow()
         {
             InitializeComponent();
+            lvl_cardbinding.ItemsSource = card;
         }
 
         private int card_count; //zählt die menge hinzugefügter Karten
@@ -42,37 +45,41 @@ namespace YugiohWPF
 
         HttpClient httpClient = new HttpClient();
 
-        
-        private void send_requ()
+        string imageurl;
+
+        private string send_requ()
         {
             string requestUri = "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Dark Magician";
-            string jsonstring = "{'id':46986421,'name':'Dark Magician'}";
-
             HttpResponseMessage httpResponse = httpClient.GetAsync(requestUri).Result;
-
             string response = httpResponse.Content.ReadAsStringAsync().Result;
 
             Root JSON_Objekte = JsonConvert.DeserializeObject<Root>(response);
 
+            imageurl = JSON_Objekte.data[0].card_images[0].image_url.ToString();
 
-            MessageBox.Show(JSON_Objekte.data[0].card_images[0].image_url.ToString());
+            //MessageBox.Show(imageurl);
+
+            return imageurl;
 
         }
 
-        public class cardResponse
+        private void btn_Create_Click(object sender, RoutedEventArgs e)
         {
-            public string name { get; set; }
+            card.Add(new CardImage() {image_url = send_requ() });
+            
         }
 
-        class Data
+        private void btn_Test_Click(object sender, RoutedEventArgs e)
         {
-            public int atk;
+            YugiohWPF.Filter filter = new Filter();
+            filter.Show();
         }
 
+        /*
         private void add_card_to_deck()
         {
 
-            //Erstellt eine "Karte" --> das hier muss zu einer echten Karte geändert werden (Label ist Platzalter)
+            Erstellt eine "Karte" --> das hier muss zu einer echten Karte geändert werden (Label ist Platzalter)
             TextBlock card1 = new TextBlock();
             card1.Text = "Karte" + card_count.ToString();
             card1.FontSize = 14;
@@ -156,5 +163,6 @@ namespace YugiohWPF
             YugiohWPF.Filter filter = new Filter();
             filter.Show();
         }
+    }*/
     }
 }
