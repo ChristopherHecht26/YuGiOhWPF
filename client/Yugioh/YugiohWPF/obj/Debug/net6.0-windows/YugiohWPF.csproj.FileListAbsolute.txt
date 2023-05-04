@@ -46,3 +46,5 @@ C:\Users\benth\OneDrive\Desktop\YuGiOh2\YuGiOhWPF\client\Yugioh\YugiohWPF\obj\De
 C:\Users\benth\OneDrive\Desktop\YuGiOh2\YuGiOhWPF\client\Yugioh\YugiohWPF\obj\Debug\net6.0-windows\Filter.baml
 C:\Users\benth\OneDrive\Desktop\YuGiOh2\YuGiOhWPF\client\Yugioh\YugiohWPF\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 C:\Users\benth\OneDrive\Desktop\YuGiOh2\YuGiOhWPF\client\Yugioh\YugiohWPF\obj\Debug\net6.0-windows\YugiohWPF.csproj.CopyComplete
+C:\Users\User\Documents\GitHub\YuGiOhWPF\client\Yugioh\YugiohWPF\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\User\Documents\GitHub\YuGiOhWPF\client\Yugioh\YugiohWPF\obj\Debug\net6.0-windows\YugiohWPF.csproj.CopyComplete

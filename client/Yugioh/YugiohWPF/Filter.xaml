@@ -11,8 +11,23 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBox Grid.Column="0" x:Name="txtBoxSearch" Text="{Binding name}" Margin="5" Height="30" VerticalAlignment="Top" Width="430" />
-        <ListView x:Name="lvKarten" Margin="5" VerticalAlignment="Bottom" Height="370" >
+
+        <StackPanel x:Name="stkPanel">
+            
+        
+            <StackPanel x:Name="stkPanelName" Orientation="Horizontal" Grid.Column="0">
+            <TextBlock x:Name="txtBlockName" Text="Name:"/>
+            <TextBox x:Name="txtBoxSearch" Text="{Binding name}" Width="350" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" TextChanged="txtBoxSearch_TextChanged" />
+            </StackPanel>
+            <StackPanel x:Name="stkPanelID" Orientation="Horizontal" Grid.Column="0">
+            <TextBlock x:Name="textBlockID" TextWrapping="Wrap" Text="ID" TextAlignment="Center" Width="35"/>
+                <TextBox x:Name="textBoxID" Width="350" Height="30"/>
+            </StackPanel>
+            <TextBlock x:Name="txtBlockTest" Height="83" TextWrapping="Wrap" Text="TextBlock" Width="173" />
+
+
+        </StackPanel>
+        <ListView x:Name="lvKarten" Margin="5" VerticalAlignment="Bottom" Height="370"  >
 
         </ListView>
 
@@ -22,11 +37,12 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <StackPanel x:Name="stkPanel_Labels">
-                <Label x:Name="lbl_CardType" Content="Card Type : "/>
-                <Label x:Name="lbl_Category" Content="Category : "/>
-                <Label x:Name="lbl_Ability" Content="Ability : "/>
+                <Label x:Name="lbl_CardType" Content="Type : "/>
+                
+                <Label x:Name="lbl_ATK" Content="ATK: "/>
+                <Label x:Name="lbl_DEF" Content="DEF: "/>
                 <Label x:Name="lbl_Attribute" Content="Atrribute : "/>
-                <Label x:Name="lbl_Type" Content="Type :"/>
+                <Label x:Name="lbl_Type" Content="Race :"/>
                 <Label x:Name="lbl_Level" Content="Level : "/>
                 <Label x:Name="lbl_Effect_Type" Content="Effect Type : "/>
                 <Label x:Name="lbl_Effect" Content="Effect : "/>
@@ -37,15 +53,8 @@
                         <Setter Property="Padding" Value="0,5,0,5"/>
                     </Style>
                 </StackPanel.Resources>
-                <ComboBox x:Name="cmbBox_CardType">
+                <ComboBox x:Name="cmbBox_Type" SelectionChanged="cmbBox_CardType_SelectionChanged" SelectedItem="{Binding type}">
                     <ComboBoxItem  Content="All Cards" IsSelected="True"/>
-                    <ComboBoxItem  Content="Monster Cards" />
-                    <ComboBoxItem  Content="Trap Cards" />
-                    <ComboBoxItem  Content="Spell Cards"/>
-                </ComboBox>
-
-                <ComboBox x:Name="cmbBox_Category">
-                    <ComboBoxItem  Content="Any" IsSelected="True" />
                     <ComboBoxItem  Content="Normal" />
                     <ComboBoxItem  Content="Effect" />
                     <ComboBoxItem  Content="Non Effect" />
@@ -57,17 +66,14 @@
                     <ComboBoxItem  Content="Link" />
                     <ComboBoxItem  Content="Trap Monster" />
                     <ComboBoxItem  Content="Maximum" />
+                    <ComboBoxItem  Content="Trap Cards" />
+                    <ComboBoxItem  Content="Spell Cards"/>
                 </ComboBox>
-                <ComboBox x:Name="cmbBox_Ability">
-                    <ComboBoxItem  Content="Any" IsSelected="True" />
-                    <ComboBoxItem  Content="Tuner" />
-                    <ComboBoxItem  Content="Gemini" />
-                    <ComboBoxItem  Content="Flip" />
-                    <ComboBoxItem  Content="Toon" />
-                    <ComboBoxItem  Content="Union" />
-                    <ComboBoxItem  Content="Spirit" />
-                    <ComboBoxItem  Content="Special Summon" />
-                </ComboBox>
+
+
+                <TextBox x:Name="txtBoxATK" Text="{Binding atk}" TextChanged="txtBoxATK_TextChanged" Height="24.75"/>
+                <TextBox x:Name="txtBoxDEF" Text="{Binding def}" TextChanged="txtBoxDEF_TextChanged" Height="24.75"/>
+
                 <ComboBox x:Name="cmbBox_Attribute">
                     <ComboBoxItem  Content="Any" IsSelected="True" />
                     <ComboBoxItem  Content="Dark" />
@@ -78,7 +84,7 @@
                     <ComboBoxItem  Content="Wind" />
                     <ComboBoxItem  Content="Divine" />
                 </ComboBox>
-                <ComboBox x:Name="cmbBox_Type">
+                <ComboBox x:Name="cmbBox_Race">
                     <ComboBoxItem  Content="Any" IsSelected="True" />
                     <ComboBoxItem  Content="Aqua" />
                     <ComboBoxItem  Content="Beast" />
@@ -121,8 +127,9 @@
                     <ComboBoxItem Content="12"/>
                 </ComboBox>
             </StackPanel>
-            <Button x:Name="btnSuchen" Grid.Column="1" Content="Suchen" VerticalAlignment="Bottom" Height="25" Width="75" Margin="10" HorizontalAlignment="Left"/>
+            <Button x:Name="btnSuchen" Grid.Column="1" Content="Suchen" VerticalAlignment="Bottom" Height="25" Width="75" Margin="10" HorizontalAlignment="Left" Click="btnSuchen_Click"/>
             <Button Grid.Column="1" Height="25" Width="75" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Hinzufügen" />
         </Grid>
+        
     </Grid>
 </Window>
