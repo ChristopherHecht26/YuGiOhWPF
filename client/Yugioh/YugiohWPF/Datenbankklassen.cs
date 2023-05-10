@@ -36,7 +36,7 @@ namespace YugiohWPF
             public string set_price { get; set; }
         }
 
-        public class Datum
+        public class Info
         {
             public int id { get; set; }
             public string name { get; set; }
@@ -56,7 +56,7 @@ namespace YugiohWPF
 
         public class Root
         {
-            public List<Datum> data { get; set; }
+            public List<Info> data { get; set; }
         }
     
 }

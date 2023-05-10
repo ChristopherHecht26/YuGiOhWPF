@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YugiohWPF"
         mc:Ignorable="d"
-        Title="Filter" Height="550" Width="900" Icon="/YUGIBUILDBILD.png" ResizeMode="NoResize">
+        Title="Filter" Height="720"  Width="1024" Icon="/YUGIBUILDBILD.png" ResizeMode="NoResize" WindowState="Maximized" WindowStyle="None">
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -15,86 +16,94 @@
         <StackPanel x:Name="stkPanel">
 
 
-            <StackPanel x:Name="stkPanelName" Orientation="Horizontal" Grid.Column="0">
+            <StackPanel x:Name="stkPanelName" Orientation="Horizontal" Grid.Column="0" Margin="0 10 0 0">
                 <TextBlock x:Name="txtBlockName" Text="Name:"/>
                 <TextBox x:Name="txtBoxSearch" Text="{Binding name}" Width="350" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" TextChanged="txtBoxSearch_TextChanged" />
             </StackPanel>
-            <StackPanel x:Name="stkPanelID" Orientation="Horizontal" Grid.Column="0">
-                <TextBlock x:Name="textBlockID" TextWrapping="Wrap" Text="ID" TextAlignment="Center" Width="35"/>
-                <TextBox x:Name="textBoxID" Width="350" Height="30"/>
-            </StackPanel>
-            <TextBlock x:Name="txtBlockTest" Height="83" TextWrapping="Wrap" Text="TextBlock" Width="173" />
 
+            <ListView x:Name="lvKarten" Margin="5" VerticalAlignment="Bottom" Height="570" MouseDoubleClick="lvKarten_MouseDoubleClick">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Column="0" Grid.Row="0" Source="{Binding cardimage}" Height="80"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding name}"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding type}"/>
+                            <TextBlock Grid.Row="1" Grid.Column="2" Text="  ATK : "/>
+                            <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding atk}"/>
+                            <TextBlock Grid.Row="2" Grid.Column="2" Text="  DEF : "/>
+                            <TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding def}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
 
         </StackPanel>
         
-        <ListView x:Name="lvKarten" Margin="5" VerticalAlignment="Bottom" Height="370"  >
-
-        </ListView>
+        
 
         <Grid Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel x:Name="stkPanel_Labels">
-                    <Label x:Name="lbl_CardType" Content="Type : "/>
+            <StackPanel x:Name="stkPanel_Labels" Margin="0 10 0 0">
+                <TextBlock Text="Filtersuche ein/aus : "/>
+                <Label x:Name="lbl_CardType" Content="Type : "/>
 
-                    <Label x:Name="lbl_ATK" Content="ATK: "/>
+                <Label x:Name="lbl_ATK" Content="ATK: "/>
                     <Label x:Name="lbl_DEF" Content="DEF: "/>
                     <Label x:Name="lbl_Attribute" Content="Atrribute : "/>
                 <Label x:Name="lbl_Race" Content="Race :"/>
                 <Label x:Name="lbl_Level" Content="Level : "/>
-                <Label x:Name="lbl_Effect_Type" Content="Effect Type : "/>
-                <Label x:Name="lbl_Effect" Content="Effect : "/>
             </StackPanel>
-            <StackPanel x:Name="stkPanel_ComboBoxes" Grid.Column="1" Margin="2">
+            <StackPanel x:Name="stkPanel_ComboBoxes" Grid.Column="1" Margin="0 10 0 0">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type ComboBox}">
                         <Setter Property="Padding" Value="0,5,0,5"/>
                     </Style>
                 </StackPanel.Resources>
-                <ComboBox x:Name="cmbBox_Type" SelectionChanged="cmbBox_Type_SelectionChanged" SelectedItem="{Binding type}" >
-                    <ComboBoxItem  Content="All Cards" IsSelected="True" />
-                    <ComboBoxItem  Content="Monster Cards" />
-                    <ComboBoxItem  Content="Trap Cards" />
-                    <ComboBoxItem  Content="Spell Cards"/>
+                <CheckBox x:Name="chbx_filtersearch_enable"/>
+                <ComboBox x:Name="cmbBox_Type" SelectionChanged="cmbBox_Type_SelectionChanged" >
+                    <ComboBoxItem Content="Alle" IsSelected="True"/>
+                    <ComboBoxItem  Content="Effect Monster" />
+                    <ComboBoxItem  Content="Normal Monster"/>
+                    <ComboBoxItem  Content="Toon Monster" />
+                    <ComboBoxItem  Content="Trap Card" />
+                    <ComboBoxItem  Content="Spell Card"/>
                 </ComboBox>
 
-                <ComboBox x:Name="cmbBox_Category">
-                    <ComboBoxItem  Content="Any" IsSelected="True" />
-                    <ComboBoxItem  Content="Normal" />
-                    <ComboBoxItem  Content="Effect" />
-                    <ComboBoxItem  Content="Non Effect" />
-                    <ComboBoxItem  Content="Ritual" />
-                    <ComboBoxItem  Content="Fusion" />
-                    <ComboBoxItem  Content="Synchro" />
-                    <ComboBoxItem  Content="Xyz" />
-                    <ComboBoxItem  Content="Pendulum" />
-                    <ComboBoxItem  Content="Link" />
-                    <ComboBoxItem  Content="Trap Monster" />
-                    <ComboBoxItem  Content="Maximum" />
-                    <ComboBoxItem Content="Trap Cards"/>
-                    <ComboBoxItem Content="Spell Cards"/>
+
+
+                <TextBox x:Name="txtBoxATK"  TextChanged="txtBoxATK_TextChanged" Height="24.75"/>
+                <TextBox x:Name="txtBoxDEF"  TextChanged="txtBoxDEF_TextChanged" Height="24.75"/>
+
+
+                <ComboBox x:Name="cmbBox_Attribute" SelectionChanged="cmbBox_Attribute_SelectionChanged">
+                    <ComboBoxItem Content="Alle" IsSelected="True"/>
+                    <ComboBoxItem  Content="dark"/>
+                    <ComboBoxItem  Content="earth" />
+                    <ComboBoxItem  Content="fire" />
+                    <ComboBoxItem  Content="light" />
+                    <ComboBoxItem  Content="water" />
+                    <ComboBoxItem  Content="wind" />
+                    <ComboBoxItem  Content="divine" />
                 </ComboBox>
-
-                <TextBox x:Name="txtBoxATK" Text="{Binding atk}" TextChanged="txtBoxATK_TextChanged" Height="24.75"/>
-                <TextBox x:Name="txtBoxDEF" Text="{Binding def}" TextChanged="txtBoxDEF_TextChanged" Height="24.75"/>
-
-
-                <ComboBox x:Name="cmbBox_Attribute">
-                    <ComboBoxItem  Content="Any" IsSelected="True" />
-                    <ComboBoxItem  Content="Dark" />
-                    <ComboBoxItem  Content="Earth" />
-                    <ComboBoxItem  Content="Fire" />
-                    <ComboBoxItem  Content="Light" />
-                    <ComboBoxItem  Content="Water" />
-                    <ComboBoxItem  Content="Wind" />
-                    <ComboBoxItem  Content="Divine" />
-                </ComboBox>
-                <ComboBox x:Name="cmbBox_Race">
-                    <ComboBoxItem  Content="Any" IsSelected="True" />
-                    <ComboBoxItem  Content="Aqua" />
+                <ComboBox x:Name="cmbBox_Race" SelectionChanged="cmbBox_Race_SelectionChanged">
+                    <ComboBoxItem Content="Alle" IsSelected="True"/>
+                    <ComboBoxItem  Content="Aqua"/>
                     <ComboBoxItem  Content="Beast" />
                     <ComboBoxItem  Content="Beast-Warrior" />
                     <ComboBoxItem  Content="Cyberse" />
@@ -119,8 +128,8 @@
                     <ComboBoxItem  Content="Wyrm" />
                     <ComboBoxItem  Content="Zombie" />
                 </ComboBox>
-                <ComboBox x:Name="cmbBox_Level">
-                    <ComboBoxItem Content="Any" IsSelected="True"/>
+                <ComboBox x:Name="cmbBox_Level" SelectionChanged="cmbBox_Level_SelectionChanged">
+                    <ComboBoxItem Content="Alle" IsSelected="True"/>
                     <ComboBoxItem Content="1"/>
                     <ComboBoxItem Content="2"/>
                     <ComboBoxItem Content="3"/>
@@ -134,9 +143,59 @@
                     <ComboBoxItem Content="11"/>
                     <ComboBoxItem Content="12"/>
                 </ComboBox>
+                <TextBlock Text="Beschreibung : " Margin="0 10 0 10"/>
+                <Border BorderBrush="Black" BorderThickness="2" Height="400">
+                    <TextBlock x:Name="txtb_desc" Text="Doppelklick auf eine Karte um die Beschreibung anzuzeigen" Height="400" TextWrapping="Wrap"/>
+                </Border>
             </StackPanel>
             <Button x:Name="btnSuchen" Grid.Column="1" Content="Suchen" VerticalAlignment="Bottom" Height="25" Width="75" Margin="10" HorizontalAlignment="Left" Click="btnSuchen_Click"/>
-            <Button Grid.Column="1" Height="25" Width="75" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Hinzufügen" />
+            <Button x:Name="btn_add_card" Grid.Column="1" Height="25" Width="75" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Hinzufügen" Click="btn_add_card_Click" />
         </Grid>
+        <Border Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="12*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="btn_close" Content="CLOSE" Width="50" Height="20" HorizontalAlignment="Right" Background="Red" Foreground="White" Margin="5" VerticalAlignment="Top" Click="btn_close_click"/>
+                <TextBlock Grid.Row="1" Text="Dein Deck : " VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
+
+                <ListView Grid.Row="2" x:Name="lvKartenDeck" Margin="5" MouseDoubleClick="lvKartenDeck_MouseDoubleClick"  >
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal" Width="{Binding ActualWidth,ElementName=lvKartenDeck}"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
+                                <Image Grid.Column="0" Grid.Row="0" Source="{Binding cardimage}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+
+                <Button x:Name="brn_delete" Grid.Row="3" Height="20" Width="120" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 0 5 0" Content="Karte entfernen" Click="brn_delete_Click" IsEnabled="False"/>
+                <TextBlock x:Name="txtb_count" Grid.Row="3" Text="Karten : " HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5"/>
+
+            </Grid>
+            
+        </Border>
+        
     </Grid>
 </Window>
