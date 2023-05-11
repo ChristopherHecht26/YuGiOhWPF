@@ -132,7 +132,7 @@ namespace YugiohWPF
         {
             if(cardcount >= 60)
             {
-                MessageBox.Show("Maximale Kartenmenge überschritten um : " + (cardcount - 60));
+                MessageBox.Show("Maximale Kartenmenge überschritten um : " + (cardcount - 59));
             }
             if (lvKarten.SelectedIndex == -1) 
             {
@@ -247,7 +247,7 @@ namespace YugiohWPF
 
         private void lvKartenDeck_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            txtb_desc.Text = cardinfolist[lvKartenDeck.SelectedIndex].desc;
+            txtb_desc.Text = deckinfolist[lvKartenDeck.SelectedIndex].desc;
         }
     }
 }

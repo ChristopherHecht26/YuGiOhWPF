@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "LMN8gZ1acOAYlRM7dNvFNp9LYF0zYJjagbveSMiG2g1lhfzaVFTySMjrRWUDft18UgjcwRMPaBwTutelEOJ4dw==",
+  "dgSpecHash": "jsgP3dXHX8xPqYTJE0Gqd2OGOm2J7TaNz2N0R0/lTRE3GaF84beWppvPT7e09QrUOkefyjsgt4bUmgiPNh4gQA==",
   "success": true,
-  "projectFilePath": "D:\\GitHub\\YuGiOhWPF\\client\\Yugioh\\YugiohWPF\\YugiohWPF.csproj",
+  "projectFilePath": "C:\\Users\\benth\\OneDrive\\Desktop\\YuGiOh2\\YuGiOhWPF\\client\\Yugioh\\YugiohWPF\\YugiohWPF.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\hecht\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\benth\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }
