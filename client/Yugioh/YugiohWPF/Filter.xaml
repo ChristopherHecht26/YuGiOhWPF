@@ -190,7 +190,7 @@
 
                 </ListView>
 
-                <Button x:Name="brn_delete" Grid.Row="3" Height="20" Width="120" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 0 5 0" Content="Karte entfernen" Click="brn_delete_Click" IsEnabled="False"/>
+                <Button x:Name="btn_delete" Grid.Row="3" Height="20" Width="120" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 0 5 0" Content="Karte entfernen" Click="btn_delete_Click" IsEnabled="False"/>
                 <TextBlock x:Name="txtb_count" Grid.Row="3" Text="Karten : " HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5"/>
 
             </Grid>

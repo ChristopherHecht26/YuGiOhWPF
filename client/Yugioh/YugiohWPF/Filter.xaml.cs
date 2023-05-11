@@ -143,7 +143,7 @@ namespace YugiohWPF
                 deckinfolist.Add(cardinfolist[lvKarten.SelectedIndex]);
                 cardcount++;
                 txtb_count.Text = "Karten : " + cardcount.ToString();
-                brn_delete.IsEnabled = true;
+                btn_delete.IsEnabled = true;
             }
             
         }
@@ -153,7 +153,7 @@ namespace YugiohWPF
             this.Close();
         }
 
-        private void brn_delete_Click(object sender, RoutedEventArgs e)
+        private void btn_delete_Click(object sender, RoutedEventArgs e)
         {
             if(lvKartenDeck.SelectedIndex == -1)
             {
@@ -170,7 +170,7 @@ namespace YugiohWPF
 
             if (cardcount == 0)
             {
-                brn_delete.IsEnabled = false;
+                btn_delete.IsEnabled = false;
             }
             else
             {

@@ -8,11 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="YUGIBUILDBILD.png" />
+    <Compile Remove="Repository\**" />
+    <EmbeddedResource Remove="Repository\**" />
+    <None Remove="Repository\**" />
+    <Page Remove="Repository\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repository\" />
+    <None Remove="YUGIBUILDBILD.png" />
   </ItemGroup>
 
   <ItemGroup>

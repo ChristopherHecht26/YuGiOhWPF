@@ -16,7 +16,7 @@ namespace YugiohWPF
             public string image_url_cropped { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
-    }
+        }
 
         public class CardPrice
         {

@@ -55,23 +55,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\benth\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\hecht\\.nuget\\packages\\": {},
+    "D:\\Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\benth\\OneDrive\\Desktop\\YuGiOh2\\YuGiOhWPF\\client\\Yugioh\\YugiohWPF\\YugiohWPF.csproj",
+      "projectUniqueName": "D:\\GitHub\\YuGiOhWPF\\client\\Yugioh\\YugiohWPF\\YugiohWPF.csproj",
       "projectName": "YugiohWPF",
-      "projectPath": "C:\\Users\\benth\\OneDrive\\Desktop\\YuGiOh2\\YuGiOhWPF\\client\\Yugioh\\YugiohWPF\\YugiohWPF.csproj",
-      "packagesPath": "C:\\Users\\benth\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\benth\\OneDrive\\Desktop\\YuGiOh2\\YuGiOhWPF\\client\\Yugioh\\YugiohWPF\\obj\\",
+      "projectPath": "D:\\GitHub\\YuGiOhWPF\\client\\Yugioh\\YugiohWPF\\YugiohWPF.csproj",
+      "packagesPath": "C:\\Users\\hecht\\.nuget\\packages\\",
+      "outputPath": "D:\\GitHub\\YuGiOhWPF\\client\\Yugioh\\YugiohWPF\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "D:\\Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\benth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hecht\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

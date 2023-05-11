@@ -12,7 +12,7 @@
 
         </DockPanel>
 
-        <Button x:Name="Builder" Content="Deck Buidler starten" Width="150" Height="27" Click ="btn_Test_Click"/>
+        <Button x:Name="Builder" Content="Deck Builder starten" Width="150" Height="27" Click ="btn_Test_Click"/>
 
     </Grid>
 </Window>
